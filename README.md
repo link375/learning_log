@@ -29,10 +29,10 @@ prints...
 2 Rock Climbing
 
 - example 2
->>> t = Topic.objects.get(id=1)
->>> t.text
+t = Topic.objects.get(id=1)
+t.text
 'Chess'
->>> t.date_added
+t.date_added
 datetime.datetime(2015, 5, 28, 4, 39, 11, 989446, tzinfo=<UTC>)
 
 or

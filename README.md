@@ -3,7 +3,7 @@ Simple Django App
 
 Start Django app
 
-django-admin.py startproject <name> .
+django-admin.py startproject <projectName> .
 
 creating a database
 
@@ -11,7 +11,11 @@ python manage.py migrate
 
 - Run the server
 
-python manage.py runserver
+python manage.py runserver <port>
+
+- run the application
+
+python manage.py startapp <appname>
 
 - Admin page
 

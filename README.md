@@ -1,6 +1,14 @@
 # learning_log
 Simple Django App
 
+Start Django app
+
+django-admin.py startproject <name> .
+
+creating a database
+
+python manage.py migrate
+
 - Run the server
 
 python manage.py runserver
@@ -55,3 +63,6 @@ datetime.datetime(2015, 5, 28, 4, 39, 11, 989446, tzinfo=<UTC>)
 or
 
 t.entry_set.all()
+
+querying data
+https://docs.djangoproject.com/en/1.8/topics/db/queries/

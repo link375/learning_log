@@ -31,6 +31,23 @@ python manage.py createsuperuser
 User:ll_admin
 pass: password!
 
+- import migrations
+
+python manage.py makemigrations <appName>
+
+-then run the migrations script again
+
+To show a table in the admin panel
+
+from django.contrib import admin
+
+from learning_logs.models import Class, Class2
+
+# Register your models here.
+
+admin.site.register(ModelClass)
+admin.site.register(ModelClass)
+
 - Django Shell
 
 python manage.py shell

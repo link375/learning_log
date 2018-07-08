@@ -13,11 +13,18 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-# included to be able to use urls
+
+# import admin since it has its own url
 from django.contrib import admin
+# import path and include to allow us to map
+# urls from other apps
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('learning_logs.urls')),
+    # add the url to the learning_logs app
+    # you can also use a 3rd argument to specify
+    # a namespace namespace='learning_logs'
+    # this will avoid confusing it with another apps urls.py
+    path('', include('learning_logs.urls'), name='learning_logs'),
 ]

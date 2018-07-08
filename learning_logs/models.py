@@ -21,7 +21,10 @@ class Topic(models.Model):
 
 class Entry(models.Model):
     """Something specific learned about a topic"""
-    #
+    # ForeignKey(other_model, options)
+    # connects this to another model by using the same id
+    # connects many entries to one topic
+    # if the topic is deleted then all entries will be deleted as well
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = models.TextField()
     date_added = models.DateField(auto_now_add=True)
@@ -30,8 +33,12 @@ class Entry(models.Model):
     class Meta:
         verbose_name_plural = 'entries'
 
+
     def __str__(self):
         """Return a string representation of the model."""
+        # if the entry is longer than 50 chars
+        # return the first 50 chars
+        # otherwise return the whole entry
         if int(len(self.text)) >= 50:
             return self.text[:50] + "..."
         else:

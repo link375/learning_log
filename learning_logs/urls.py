@@ -1,14 +1,11 @@
-"""Defines URL patterns for learning_logs."""
+"""Defines url patterns for learning_logs."""
 
-from django.conf.urls import url
+from django.urls import path
 
 from . import views
 
+app_name = 'learning_logs'
 urlpatterns = [
-    # Home page
-    # r - raw string
-    # '' start and beggining of regex
-    # ^ beggining of the string
-    # $ end of the string
-    url(r'^$', views.index, name='index'),
+    # Home page.
+    path('', views.index, name='index'),
 ]

@@ -15,4 +15,12 @@ urlpatterns = [
     # Home page.
     # url/pattern, templateLocation, nameOfURL
     path('', views.index, name='index'),
+
+    # Show all topics
+    path('topics/', views.topics, name='topics'),
+
+    # Show all entries
+    path('entries/', views.entries, name='entries'),
+
+
 ]

@@ -19,7 +19,8 @@ empty is the same as null - no values found
 <ul>
     {% for topic in topics %}
     <li>
-        {{ topic }}
+        <!-- prints urls to topics -->
+        <a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
     </li>
     {% empty %}
         <li>No topics have been added yet.</li>

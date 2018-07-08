@@ -17,7 +17,12 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     # Show all topics
+    # show single topics if its ID is specified
     path('topics/', views.topics, name='topics'),
+
+    # Show individual topic
+    # <int:topic_id> will store whatever is there as an int
+    path('topics/<int:topic_id>/', views.topic, name='topic'),
 
     # Show all entries
     #path('entries/', views.entries, name='entries'),

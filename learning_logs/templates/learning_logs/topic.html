@@ -1,0 +1,31 @@
+<!-- inherit the base.html template -->
+
+{% extends "learning_logs/base.html" %}
+
+
+{% block content %}
+
+<!-- print the name of the topic -->
+<p>Topic: {{ topic }}</p>
+
+<p>
+    Entries:
+</p>
+
+<!-- for each entry get the date added
+and get the text for each entry -->
+
+{% for entry in entries %}
+<ul>
+    <li>
+        <p>{{ entry.date_added|date:'M d, Y' }}</p>
+        <p>{{ entry.text|linebreaks }}</p>
+    </li>
+{% empty %}
+    <li>
+        No entries have been added for this topic yet.
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

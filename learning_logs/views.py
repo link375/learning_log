@@ -12,7 +12,6 @@ def index(request):
     # assumes it's in a templates directory
     return render(request, 'learning_logs/index.html')
 
-
 def topics(request):
     """Show all topics"""
     # query the database for topics by date added
@@ -24,3 +23,15 @@ def topics(request):
     # value - data in each topic
     context = {'topics':topics}
     return render(request, 'learning_logs/topics.html', context)
+
+
+def topic(request, topic_id):
+    """Show a single topic"""
+    # get a single topic, based on the topic_id in the url
+    topic = Topic.objects.get(id=topic_id)
+    # get the entries for this topic based on the date they were added
+    # -date_added means sort in descending order
+    entries = topic.entry_set.order_by('-date_added')
+    # context for the template to handle the data
+    context = {'topic': topic, 'entries': entries}
+    return render(request, 'learning_logs/topic.html', context)

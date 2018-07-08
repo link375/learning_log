@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p>Learning Log</p>
+<!-- inherit from the base.html template -->
+{% extends "learning_logs/base html" %}
 
-<p>Learning log helps you keep track of your leaning, for any topic you're learning about.</p>
-</body>
-</html>
+<!-- specific stuff for this url -->
+{% block content %}
+
+<p>Learning log helps you keep track of your learning, for any topic you're learning about.</p>
+
+{% endblock content %}

@@ -1,0 +1,29 @@
+<!-- inherit the base.html template -->
+
+{% extends "learning_logs/base.html" %}
+
+
+{% block content %}
+
+<p>Topics</p>
+
+<!--
+for topic in topics, print topic,
+else print the statement
+
+To print a variable in a template,
+wrap the variable name in double braces
+
+empty is the same as null - no values found
+-->
+<ul>
+    {% for topic in topics %}
+    <li>
+        {{ topic }}
+    </li>
+    {% empty %}
+        <li>No topics have been added yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

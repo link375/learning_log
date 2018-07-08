@@ -8,7 +8,8 @@ app_name.urlpatterns[0].name
 template tag, indicated by braces and percent signs
 -->
 <p>
-<a href="{% url 'learning_logs:index' %}">Learning Log</a>
+    <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>
 </p>
 
 <!-- render the rest of the page -->

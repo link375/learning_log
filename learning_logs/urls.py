@@ -20,7 +20,7 @@ urlpatterns = [
     path('topics/', views.topics, name='topics'),
 
     # Show all entries
-    path('entries/', views.entries, name='entries'),
+    #path('entries/', views.entries, name='entries'),
 
 
 ]

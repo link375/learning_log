@@ -13,7 +13,7 @@ python manage.py migrate
 
 python manage.py runserver <port>
 
-- run the application
+- start new application
 
 python manage.py startapp <appname>
 
@@ -22,7 +22,7 @@ python manage.py startapp <appname>
 http://127.0.0.1:8000/admin/
 
 - modifying the database after adding models
-python manage.py makemigrations learning_logs
+python manage.py makemigrations <appName>
 python manage.py migrate
 
 - create superuser

@@ -26,6 +26,7 @@ class Entry(models.Model):
     # connects many entries to one topic
     # if the topic is deleted then all entries will be deleted as well
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    # no limit on text input here - write as much as you want
     text = models.TextField()
     date_added = models.DateField(auto_now_add=True)
 
@@ -39,6 +40,7 @@ class Entry(models.Model):
         # if the entry is longer than 50 chars
         # return the first 50 chars
         # otherwise return the whole entry
+        # one char per index
         if int(len(self.text)) >= 50:
             return self.text[:50] + "..."
         else:

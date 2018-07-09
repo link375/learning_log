@@ -17,7 +17,7 @@ and get the text for each entry -->
 
 {% for entry in entries %}
 <ul>
-    <li>
+    <li><!-- the | signifies a filter on how to display data -->
         <p>{{ entry.date_added|date:'M d, Y' }}</p>
         <p>{{ entry.text|linebreaks }}</p>
     </li>

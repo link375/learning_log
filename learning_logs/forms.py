@@ -2,7 +2,8 @@
 
 from django import forms
 
-from .models import Topic
+from .models import Topic, Entry
+
 
 # Create a form to add Topics
 # Create an input text field
@@ -12,3 +13,13 @@ class TopicForm(forms.ModelForm):
         model = Topic
         fields = ['text']
         labels = {'text': ''}
+
+
+# create a form for the entries
+class EntryForm(forms.ModelForm):
+    class Meta:
+        model = Entry
+        fields = ['text']
+        labels = {'text': ''}
+        # css make the width 80 cols; standard: 40
+        widgets = {'text': forms.Textarea(attrs={'cols': 80})}

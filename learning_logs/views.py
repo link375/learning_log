@@ -10,7 +10,7 @@ from django.urls import reverse
 from .models import Topic
 
 # import the Form
-from .forms import TopicForm
+from .forms import TopicForm, EntryForm
 
 
 # Create your views here.
@@ -73,4 +73,30 @@ def new_topic(request):
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
 
+
+def new_entry(request, topic_id):
+    """add a new entry"""
+
+    # get the topic by using the id from the url
+    topic = Topic.objects.get(id=topic_id)
+
+    # check if it's a POST request
+    if request.method != 'POST':
+        form = EntryForm()
+    else:
+        # pass the request and data to the form
+        form = EntryForm(data=request.POST)
+        if form.is_valid():  # sanitation
+            # save as new entry but not to the db yet
+            new_entry = form.save(commit=False)
+            # add the new_entry to the correct topic based on it's ID
+            new_entry.topic = topic
+            # now save to the db
+            new_entry.save()
+            # return to the topic view
+            return HttpResponseRedirect(reverse('learning_logs:topic',
+                                                args=[topic_id]))
+
+    context = {'topic': topic, 'form': form}
+    return render(request, 'learning_logs/new_entry.html', context)
 

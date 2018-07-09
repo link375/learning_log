@@ -87,3 +87,7 @@ t.entry_set.all()
 
 querying data
 https://docs.djangoproject.com/en/1.8/topics/db/queries/
+
+TEMPLATE 
+
+https://docs.djangoproject.com/en/1.8/ref/templates/

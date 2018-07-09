@@ -24,8 +24,8 @@ urlpatterns = [
     # <int:topic_id> will store whatever is there as an int
     path('topics/<int:topic_id>/', views.topic, name='topic'),
 
-    # Show all entries
-    #path('entries/', views.entries, name='entries'),
+    # Page for adding a new topic
+    path('new_topic/', views.new_topic, name='new_topic'),
 
 
 ]

@@ -51,18 +51,25 @@ def new_topic(request):
     """Add a new topic."""
 
     # how to handle the form submission
+    # on page load it will use a GET request so
+    # render an empty form
     if request.method != 'POST':
         # No data submitted; create a blank form.
         form = TopicForm()
     else:
         # POST data submitted; process data
+        # on form submission we use POST so do this
         form = TopicForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():  # automatic sanitation vs db <3 python
             form.save()
             # after a successful save go back to the topics page
+            # reverse() gets the url
+            # then we redirect to that url
             return HttpResponseRedirect(reverse('learning_logs:topics'))
 
     # render the page and allow form to be monitored
+    # when the form is submitted it will use a POST request to the same page
+    # so the form should be saved if it's valid
     context = {'form': form}
     return render(request, 'learning_logs/new_topic.html', context)
 

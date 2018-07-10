@@ -7,9 +7,20 @@ app_name.urlpatterns[0].name
 
 template tag, indicated by braces and percent signs
 -->
+
 <p>
     <a href="{% url 'learning_logs:index' %}">Learning Log</a> -
     <a href="{% url 'learning_logs:topics' %}">Topics</a>
+
+    <!--
+    check if the user is logged in, if so greet them
+    otherwise provide a link to the login page
+    -->
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}.
+    {% else %}
+        <a href="{% url 'users:login' %}">log in</a>
+    {% endif %}
 </p>
 
 <!-- render the rest of the page -->

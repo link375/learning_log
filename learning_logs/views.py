@@ -41,6 +41,8 @@ def topic(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
     # get the entries for this topic based on the date they were added
     # -date_added means sort in descending order
+    # Entry is the object
+    # use lowercase to set here
     entries = topic.entry_set.order_by('-date_added')
     # context for the template to handle the data
     context = {'topic': topic, 'entries': entries}

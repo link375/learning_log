@@ -26,5 +26,7 @@ urlpatterns = [
     # you can also use a 3rd argument to specify
     # a namespace namespace='learning_logs'
     # this will avoid confusing it with another apps urls.py
+    path('users/', include('users.urls'), name='users'),
     path('', include('learning_logs.urls'), name='learning_logs'),
+
 ]

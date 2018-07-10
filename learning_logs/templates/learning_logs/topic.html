@@ -24,6 +24,9 @@ and get the text for each entry -->
     <li><!-- the | signifies a filter on how to display data -->
         <p>{{ entry.date_added|date:'M d, Y' }}</p>
         <p>{{ entry.text|linebreaks }}</p>
+        <p>
+            <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
+        </p>
     </li>
 {% empty %}
     <li>

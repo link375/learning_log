@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 # import the model for the date we need
-from .models import Topic
+from .models import Topic, Entry
 
 # import the Form
 from .forms import TopicForm, EntryForm
@@ -100,3 +100,36 @@ def new_entry(request, topic_id):
     context = {'topic': topic, 'form': form}
     return render(request, 'learning_logs/new_entry.html', context)
 
+
+def edit_entry(request, entry_id):
+    """
+    Monitor the edit_entry form and render the edit_entry/id page
+
+    :param request: request when this view is called
+    :param entry_id: entry_id from the URL
+    :return: save changes / render page
+    """
+
+    # get the entry by id from the URI
+    entry = Entry.objects.get(id=entry_id)
+    # get the topic from the entry object properties
+    topic = entry.topic
+
+    # on page load (GET)
+    if request != 'POST':
+        # fill the form with the current entry
+        # this way we can edit it!
+        form = EntryForm(instance=entry)
+    else:
+        # POST data submitted ; process data
+        form = EntryForm(instance=entry, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('learning_logs:topic',
+                                                args=[topic.id]))
+
+    # share tha data with the template
+    context = {'entry': entry, 'topic': topic, 'form': form}
+
+    # render the template
+    return render(request, 'learning_logs/edit_entry.html', context)

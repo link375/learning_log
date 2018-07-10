@@ -2,10 +2,18 @@
 
 {% block content %}
 
+<!--
+if there are errors with the login form
+-->
 {% if form.errors %}
 <p> Your username and password didn't match. Please try again.</p>
 {% endif %}
 
+<!--
+form to handle the user login
+after the button has been pressed
+send the user to the home page
+-->
 <form method="post" action="{% url 'users:login' %}">
     {% csrf_token %}
     {{ form.as_p }}

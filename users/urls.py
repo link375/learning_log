@@ -9,5 +9,7 @@ app_name = 'users'
 urlpatterns = [
     # login page
     # skip the views and render the default django login page
-    path('login/', login, {'template_name': 'users/login.html'}, name='login')
+    path('login/',
+         login, {'template_name': 'users/login.html'},
+         name='login')
 ]

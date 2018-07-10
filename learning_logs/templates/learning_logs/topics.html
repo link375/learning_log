@@ -8,8 +8,8 @@
 <p>Topics</p>
 
 <!--
-for topic in topics, print topic,
-else print the statement
+for topic each topic in the topics array
+print each topic name
 
 To print a variable in a template,
 wrap the variable name in double braces
@@ -28,6 +28,6 @@ empty is the same as null - no values found
 </ul>
 
 <!-- link to the input form -->
-<a href="{% url 'learning_logs:new_topic' %}">add a topic</a>
+<a href="{% url 'learning_logs:new_topic' %}">add a new topic</a>
 
 {% endblock content %}

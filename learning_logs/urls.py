@@ -13,7 +13,7 @@ app_name = 'learning_logs'
 # urls that should come to this app
 urlpatterns = [
     # Home page.
-    # url/pattern, templateLocation, nameOfURL
+    # url/pattern/URI, templateLocation, nameOfURL
     path('', views.index, name='index'),
 
     # Show all topics
@@ -28,5 +28,7 @@ urlpatterns = [
     path('new_topic/', views.new_topic, name='new_topic'),
 
     # Page for adding a new entry
-    path('new_entry/<int: topic_id>', views.new_entry, name='new_entry')
+    path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
+
+    # add new urls
 ]

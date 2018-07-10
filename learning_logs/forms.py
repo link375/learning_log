@@ -23,3 +23,5 @@ class EntryForm(forms.ModelForm):
         labels = {'text': ''}
         # css make the width 80 cols; standard: 40
         widgets = {'text': forms.Textarea(attrs={'cols': 80})}
+
+

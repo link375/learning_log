@@ -31,7 +31,7 @@ def topics(request):
     # context that will be sent to the template
     # keys - names used in the template to display data
     # value - data in each topic
-    context = {'topics':topics}
+    context = {'topics': topics}
     return render(request, 'learning_logs/topics.html', context)
 
 
@@ -85,14 +85,14 @@ def new_entry(request, topic_id):
         form = EntryForm()
     else:
         # pass the request and data to the form
-        form = EntryForm(data=request.POST)
+        form = EntryForm(request.POST)
         if form.is_valid():  # sanitation
             # save as new entry but not to the db yet
             new_entry = form.save(commit=False)
             # add the new_entry to the correct topic based on it's ID
             new_entry.topic = topic
             # now save to the db
-            new_entry.save()
+            new_entry.save()  # commit is True
             # return to the topic view
             return HttpResponseRedirect(reverse('learning_logs:topic',
                                                 args=[topic_id]))

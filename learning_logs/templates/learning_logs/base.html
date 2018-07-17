@@ -18,6 +18,7 @@ template tag, indicated by braces and percent signs
     -->
     {% if user.is_authenticated %}
         Hello, {{ user.username }}.
+        <a href="{% url 'user:logout' %}">log out</a>
     {% else %}
         <a href="{% url 'users:login' %}">log in</a>
     {% endif %}

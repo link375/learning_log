@@ -14,4 +14,8 @@ urlpatterns = [
     # skip the views and render the default django login page
     # use the template from the defined path
     path('login/', login, {'template_name': 'users/login.html'}, name='login'),
+
+    # Logout link
+    path('logout/', views.logout_view, name='logout'),
+
 ]

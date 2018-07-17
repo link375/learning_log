@@ -3,7 +3,7 @@ from django.shortcuts import render
 # import http redirect to re-route to desired page
 from django.http import HttpResponseRedirect
 
-#
+# import revers to allow sending users to another url
 from django.urls import reverse
 
 # import the model for the date we need
@@ -135,3 +135,4 @@ def edit_entry(request, entry_id):
 
     # render the template
     return render(request, 'learning_logs/edit_entry.html', context)
+

@@ -18,4 +18,8 @@ urlpatterns = [
     # Logout link
     path('logout/', views.logout_view, name='logout'),
 
+    # registration page
+    path('register/', views.register, name='register'),
+
+
 ]

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+
 # each class is the same as a table in the database
 # each variable within a class is a column and it's data type
 # each __str__ method is what is displayed in the admin panel
@@ -35,7 +36,6 @@ class Entry(models.Model):
     # this makes entries the plural form rather than entrys
     class Meta:
         verbose_name_plural = 'entries'
-
 
     def __str__(self):
         """Return a string representation of the model."""

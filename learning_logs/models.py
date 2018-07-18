@@ -13,7 +13,7 @@ class Topic(models.Model):
     text = models.CharField(max_length=200)
     # add the current date
     date_added = models.DateField(auto_now_add=True)
-    owner = models.ForeignKey(User)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # this will be displayed in the admin panel
     def __str__(self):

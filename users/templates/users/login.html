@@ -1,23 +1,22 @@
 {% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
 
+{% block header %}
+    <h2>Log in to your account.</h2>
+{% endblock header%}
+
+<!--
+we don't need the error check - bootstrap3 handles it automaticall
+we also don't need form.as_p since we use bootstrap_form form
+-->
 {% block content %}
 
-<!--
-if there are errors with the login form
--->
-{% if form.errors %}
-<p> Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-<!--
-form to handle the user login
-after the button has been pressed
-send the user to the home page
--->
-<form method="post" action="{% url 'users:login' %}">
+<form method="post" action="{% url 'users:login' %}" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">log in</button>
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button name="submit" class="bnt bnt-primary">log in</button>
+    {% endbuttons %}
     <input type="hidden" name="next" value="{% url 'learning_logs:index' %}">
 </form>
 

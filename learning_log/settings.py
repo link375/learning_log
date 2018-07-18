@@ -139,7 +139,8 @@ BOOTSTRAP3 = {
 
 # Heroku settings
 # get current working directory
-if os.getcwd() == '/app':
+cwd = os.getcwd()
+if cwd == '/app' or cwd[:4] == '/tmp':
     import dj_database_url
     DATABASES = {
         'default': dj_database_url.config(default='postgres://localhost')

@@ -109,13 +109,17 @@ def new_entry(request, topic_id):
     # get the topic by using the id from the url
     topic = Topic.objects.get(id=topic_id)
 
+    # make sure the user owns this topic
+    check_topic_owner(topic, request)
+
     # check if it's a POST request
     if request.method != 'POST':
         form = EntryForm()
     else:
         # pass the request and data to the form
         form = EntryForm(request.POST)
-        if form.is_valid():  # sanitation
+        # make sure the form is valid
+        if form.is_valid():
             # save as new entry but not to the db yet
             new_entry = form.save(commit=False)
             # add the new_entry to the correct topic based on it's ID

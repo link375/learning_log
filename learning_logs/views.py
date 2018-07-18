@@ -12,6 +12,9 @@ from .models import Topic, Entry
 # import the Form
 from .forms import TopicForm, EntryForm
 
+# require a user to be logged in
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -22,6 +25,7 @@ def index(request):
     return render(request, 'learning_logs/index.html')
 
 
+@login_required()
 def topics(request):
     """Show all topics"""
     # query the database for topics by date added

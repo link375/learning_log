@@ -25,6 +25,7 @@ def index(request):
     return render(request, 'learning_logs/index.html')
 
 
+# users must be logged in
 @login_required()
 def topics(request):
     """Show all topics"""

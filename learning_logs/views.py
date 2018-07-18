@@ -76,7 +76,12 @@ def new_topic(request):
         # on form submission we use POST so do this
         form = TopicForm(request.POST)
         if form.is_valid():  # automatic sanitation vs db <3 python
-            form.save()
+            # save the new topic in this var not in the db
+            new_topic = form.save(commit=False)
+            # link the topic to the current user
+            new_topic.owner = request.user
+            # now save it to the db
+            new_topic.save()
             # after a successful save go back to the topics page
             # reverse() gets the url
             # then we redirect to that url

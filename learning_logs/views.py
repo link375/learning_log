@@ -15,10 +15,12 @@ from .forms import TopicForm, EntryForm
 # require a user to be logged in
 from django.contrib.auth.decorators import login_required
 
-
+# security and integrity checks
 def check_topic_owner(topic, request):
+    """check if the topic belongs to the logged in user"""
     if topic.owner != request.user:
         raise Http404
+
 
 # Create your views here.
 def index(request):

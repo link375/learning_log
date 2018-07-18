@@ -1,5 +1,7 @@
 """ Defines URL patterns for users """
 
+### REMEMBER TO REGISTER THIS APP IN THE SETTINGS ###
+
 # import path to map to urls
 from django.urls import path
 

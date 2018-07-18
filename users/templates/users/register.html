@@ -1,4 +1,9 @@
 {% extends 'learning_logs/base.html' %}
+{% load bootstrap3 %}
+
+{% block header %}
+    <h1>Register for an account</h1>
+{% endblock header %}
 
 {% block content %}
 
@@ -8,12 +13,14 @@ validate the form
 after a successful submission
 send the user to the home page
 -->
-<form method="post" action="{% url 'users:register' %}">
+<form method="post" action="{% url 'users:register' %}" class="form">
     {% csrf_token %}
-    {{ form.as_p }}
+    {% bootstrap_form form %}
 
-    <button name="submit">register</button>
+    {% buttons %}
+    <button name="submit" class="btn btn-primary">register</button>
     <input type="hidden" name="next" value="{% url 'learning_logs:index' %}"/>
+    {% endbuttons %}
 </form>
 
 {% endblock content %}

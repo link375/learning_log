@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-# import http redirect to re-route to desired page
-from django.http import HttpResponseRedirect
+# import http redirect to re-route to desired page and 404
+from django.http import HttpResponseRedirect, Http404
 
 # import revers to allow sending users to another url
 from django.urls import reverse
@@ -47,6 +47,9 @@ def topic(request, topic_id):
     """Show a single topic"""
     # get a single topic, based on the topic_id in the url
     topic = Topic.objects.get(id=topic_id)
+    # make sure the topic belongs to the current user.
+    if topic.owner != request.owner:
+        raise Http404
     # get the entries for this topic based on the date they were added
     # -date_added means sort in descending order
     # Entry is the object

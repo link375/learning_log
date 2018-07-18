@@ -25,8 +25,7 @@ def index(request):
     return render(request, 'learning_logs/index.html')
 
 
-# users must be logged in
-@login_required()
+
 def topics(request):
     """Show all topics"""
     # query the database for topics by date added
@@ -40,6 +39,8 @@ def topics(request):
     return render(request, 'learning_logs/topics.html', context)
 
 
+# users must be logged in
+@login_required()
 def topic(request, topic_id):
     """Show a single topic"""
     # get a single topic, based on the topic_id in the url
@@ -54,6 +55,8 @@ def topic(request, topic_id):
     return render(request, 'learning_logs/topic.html', context)
 
 
+# users must be logged in
+@login_required()
 def new_topic(request):
     """Add a new topic."""
 
@@ -81,6 +84,8 @@ def new_topic(request):
     return render(request, 'learning_logs/new_topic.html', context)
 
 
+# users must be logged in
+@login_required()
 def new_entry(request, topic_id):
     """add a new entry"""
 
@@ -108,6 +113,8 @@ def new_entry(request, topic_id):
     return render(request, 'learning_logs/new_entry.html', context)
 
 
+# users must be logged in
+@login_required()
 def edit_entry(request, entry_id):
     """
     Monitor the edit_entry form and render the edit_entry/id page

@@ -140,6 +140,7 @@ BOOTSTRAP3 = {
 # Heroku settings
 # get current working directory
 cwd = os.getcwd()
+print("--- CWD ---\n", cwd, "\n---\n")
 if cwd == '/app' or cwd[:4] == '/tmp':
     import dj_database_url
     DATABASES = {
@@ -152,6 +153,7 @@ if cwd == '/app' or cwd[:4] == '/tmp':
 
     # allow all host headers.
     ALLOWED_HOSTS = ['*']
+    DEBUG = True
 
     # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -159,3 +161,5 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static')
     )
+
+    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'

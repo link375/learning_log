@@ -1,4 +1,11 @@
+# Credits to Eric Matthes
+
+Book: Python Crash Course
+Purchase it here: https://amzn.to/2NnR8kT
+
 # learning_log
+
+
 Simple Django App
 
 Start Django app

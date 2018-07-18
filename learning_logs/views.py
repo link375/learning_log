@@ -25,11 +25,13 @@ def index(request):
     return render(request, 'learning_logs/index.html')
 
 
-
+# users must be logged in
+@login_required()
 def topics(request):
     """Show all topics"""
     # query the database for topics by date added
-    topics = Topic.objects.order_by('date_added')
+    # only show the topics that belong to their respective owner
+    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
     # context is a
     # dictionary in which the keys are names
     # context that will be sent to the template

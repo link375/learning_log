@@ -134,6 +134,10 @@ def edit_entry(request, entry_id):
     # get the topic from the entry object properties
     topic = entry.topic
 
+    # make sure the user owns this topic / entry
+    if topic.owner != request.owner:
+        raise Http404
+
     # on page load (GET)
     if request != 'POST':
         # fill the form with the current entry

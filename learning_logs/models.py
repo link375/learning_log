@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -12,6 +13,7 @@ class Topic(models.Model):
     text = models.CharField(max_length=200)
     # add the current date
     date_added = models.DateField(auto_now_add=True)
+    owner = models.ForeignKey(User)
 
     # this will be displayed in the admin panel
     def __str__(self):

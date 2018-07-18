@@ -16,6 +16,10 @@ from .forms import TopicForm, EntryForm
 from django.contrib.auth.decorators import login_required
 
 
+def check_topic_owner(topic, request):
+    if topic.owner != request.user:
+        raise Http404
+
 # Create your views here.
 def index(request):
     """The home page for Learning Log"""
@@ -47,9 +51,10 @@ def topic(request, topic_id):
     """Show a single topic"""
     # get a single topic, based on the topic_id in the url
     topic = Topic.objects.get(id=topic_id)
-    # make sure the topic belongs to the current user.
-    if topic.owner != request.user:
-        raise Http404
+
+    # make sure the topic belongs to the owner
+    check_topic_owner(topic, request)
+
     # get the entries for this topic based on the date they were added
     # -date_added means sort in descending order
     # Entry is the object
@@ -140,8 +145,7 @@ def edit_entry(request, entry_id):
     topic = entry.topic
 
     # make sure the user owns this topic / entry
-    if topic.owner != request.user:
-        raise Http404
+    check_topic_owner(topic, request)
 
     # on page load (GET)
     if request != 'POST':

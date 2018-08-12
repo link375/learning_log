@@ -136,3 +136,7 @@ Create superuser
 Rename Heroku app
 
 > heroku apps:rename <name>
+
+Destroy project on Heroku
+
+heroku apps:destroy --app <appname>

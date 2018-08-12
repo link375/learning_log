@@ -28,12 +28,15 @@ Admin page
 modifying the database after adding models
 
 > python manage.py makemigrations <appName>
+
 > python manage.py migrate
 
 Create superuser
 
 > python manage.py createsuperuser
+
 > User:ll_admin
+
 > pass: password!
 
 Import migrations
@@ -55,17 +58,21 @@ https://docs.djangoproject.com/en/1.8/topics/db/queries/
 To show a table in the admin panel
 
 > from django.contrib import admin
+
 > from learning_logs.models import Class, Class2
 
 Show topics
 
 > from learning_logs.models import Topic
+
 > Topic.objects.all()
 
 Example
 
 > topics = Topic.objects.all()
+
 > for topic in topics:
+
 >   print(topic.id, topic)
 
 prints...
@@ -76,6 +83,7 @@ prints...
 Example 2
 
 > t = Topic.objects.get(id=1)
+
 > t.text
 
 'Chess'
@@ -102,12 +110,17 @@ use gunicorn server locally before live deploy
 Deploy to Heroku
 
 > heroku login
+
 > heroku create
+
 > git push heroku master
+
 > heroku ps
+
 > heroku open
 
 Migrate database
 
 > heroku run python manage.py makemigrations
+
 > heroku run python manage.py migrate

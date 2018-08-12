@@ -133,3 +133,6 @@ Create superuser
 
 > exit
 
+Rename Heroku app
+
+> heroku apps:rename <name>

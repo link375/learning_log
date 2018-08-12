@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # import http redirect to re-route to desired page and 404
 from django.http import HttpResponseRedirect, Http404
@@ -53,7 +53,7 @@ def topics(request):
 def topic(request, topic_id):
     """Show a single topic"""
     # get a single topic, based on the topic_id in the url
-    topic = Topic.objects.get(id=topic_id)
+    topic = get_object_or_404(Topic, id=topic_id)
 
     # make sure the topic belongs to the owner
     check_topic_owner(topic, request)

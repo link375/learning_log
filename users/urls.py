@@ -5,8 +5,8 @@
 # import path to map to urls
 from django.urls import path
 
-# import login view Django 2.0
-from django.contrib.auth import as auth_views
+# import login view Django 2.1
+from django.contrib.auth import views as auth_views
 
 from . import views
 

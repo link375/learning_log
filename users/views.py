@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 
 

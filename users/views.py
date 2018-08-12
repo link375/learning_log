@@ -7,15 +7,6 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
-def logout_view(request):
-    """
-    log the user out
-    :param request: GET request
-    :return: send use to the home page
-    """
-    logout(request)
-    return HttpResponseRedirect(reverse('learning_logs:index'))
-
 
 def register(request):
     """

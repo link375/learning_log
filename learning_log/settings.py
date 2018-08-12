@@ -25,7 +25,7 @@ SECRET_KEY = 'j^5kzp!ri25qvl(rsja#rgn3)mvikm7of#+8uh#fd+het05!57'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['link375-learning-log.herokuapp.com']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition

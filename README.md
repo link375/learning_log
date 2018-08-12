@@ -124,3 +124,12 @@ Migrate database
 > heroku run python manage.py makemigrations
 
 > heroku run python manage.py migrate
+
+Create superuser
+
+> heroku run bash
+
+> python manage.py createsuperuser
+
+> exit
+

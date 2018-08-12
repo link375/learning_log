@@ -6,7 +6,7 @@
 from django.urls import path
 
 # import login view Django 2.0
-from django.contrib.auth.views import login
+from django.contrib.auth import as auth_views
 
 from . import views
 
@@ -15,7 +15,9 @@ urlpatterns = [
     # login page
     # skip the views and render the default django login page
     # use the template from the defined path
-    path('login/', login, {'template_name': 'users/login.html'}, name='login'),
+    path('login/',
+         auth_views.LoginView.as_view(template_name='users/login.html'),
+         name='login'),
 
     # Logout link
     path('logout/', views.logout_view, name='logout'),

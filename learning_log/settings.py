@@ -25,7 +25,7 @@ SECRET_KEY = 'j^5kzp!ri25qvl(rsja#rgn3)mvikm7of#+8uh#fd+het05!57'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['link375-learning-log.herokuapp.com']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -155,7 +155,8 @@ if cwd == '/app' or cwd[:4] == '/tmp':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # allow all host headers.
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['link375-learning-log.herokuapp.com']
+
     DEBUG = False
 
     # Static asset configuration

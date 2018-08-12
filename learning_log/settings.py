@@ -129,6 +129,9 @@ STATIC_URL = '/static/'
 
 # My settings
 
+# log out URL
+LOGOUT_REDIRECT_URL = '/'
+
 # send unauthenticated users here
 LOGIN_URL = '/users/login/'
 
